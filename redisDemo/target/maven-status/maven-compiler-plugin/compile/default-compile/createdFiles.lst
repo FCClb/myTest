@@ -1,0 +1,7 @@
+com\fc\config\RedisConfig.class
+com\fc\pojo\Product.class
+com\fc\ProductApplication.class
+com\fc\controller\ProductController.class
+com\fc\mapper\ProductMapper.class
+com\fc\service\impl\ProductServiceImpl.class
+com\fc\service\ProductService.class

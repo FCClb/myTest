@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+
+    <br>
+    <form action="/test/fun4" method="post">
+
+        <!-- 文本输入框 -->
+        <label for="name">用户名:</label>
+        <input type="text" id="name" name="name" required>
+
+        <br>
+
+        <!-- 密码输入框 -->
+        <label for="password">密码:</label>
+        <input type="password" id="password" name="password" required>
+
+        <br>
+
+        <!-- 单选按钮 -->
+        <label>性别:</label>
+        <input type="radio" id="male" name="gender" value="男" checked>
+        <label for="male">男</label>
+        <input type="radio" id="female" name="gender" value="女">
+        <label for="female">女</label>
+
+        <br>
+
+        <!-- 复选框 -->
+        <input type="checkbox" id="game" name="hobbies" value="game">
+        <label for="game">game</label>
+        <input type="checkbox" id="sport" name="hobbies" value="sport">
+        <label for="sport">sport</label>
+        <input type="checkbox" id="music" name="hobbies" value="music">
+        <label for="music">music</label>
+
+        <br>
+
+        <!-- 下拉列表 -->
+        <label for="country">国家:</label>
+        <select id="country" name="country">
+            <option value="cn">CN</option>
+            <option value="usa">USA</option>
+            <option value="uk">UK</option>
+        </select>
+
+        <br>
+
+        <!-- 提交按钮 -->
+        <input type="submit" value="提交">
+    </form>
+
+<h3>fun5示例</h3>
+    <button type="button" onclick="submitDemoData()">提交示例数据</button>
+
+    <!-- 显示后端返回的结果 -->
+    <div id="res"></div>
+
+    <script>
+        function submitDemoData() {
+            //示例数据
+            const data = {
+                name: "张三",
+                password: "123456",
+                gender: "男",
+                hobbies: ["游戏", "运动"],
+                country: "cn"
+            };
+
+            //发送JSON请求
+            fetch('/test/fun5', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(data)
+            }).then(res => res.text())
+                .then(msg => document.getElementById('res').innerText = msg)
+                .catch(err => document.getElementById('res').innerText = "提交失败：" + err);
+        }
+    </script>
+
+</body>
+
+</html>
