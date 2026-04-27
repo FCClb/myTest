@@ -15,6 +15,14 @@ spring:
 # 会默认按照下面的格式，找nacos中写好的配置文件
 # ${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
 #  服务名-环境.文件后缀
-
 #server:
 #  port: 8090
+
+#openfeign 配置
+feign:
+  client:
+    config:
+      default:
+        read-timeout: 5000 # 默认设置所有服务超时5秒会报错
+      stock:
+        read-timeout: 1000  # 单独对某个服务设置超时（优先生效）
