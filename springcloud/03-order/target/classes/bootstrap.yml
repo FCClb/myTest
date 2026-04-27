@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: order # 服务名
+  profiles:
+    active: study # 环境（自定义的）
+  cloud:
+    nacos:
+      discovery:  # 注册中心地址
+        server-addr: localhost:8848
+      config: # 配置中心地址
+        server-addr: localhost:8848
+        file-extension: yml # 文件后缀
+
+# 可用nacos配置中心管理
+# 会默认按照下面的格式，找nacos中写好的配置文件
+# ${spring.application.name}-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+#  服务名-环境.文件后缀
+
+#server:
+#  port: 8090
