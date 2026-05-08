@@ -18,6 +18,11 @@ spring:
 #server:
 #  port: 8090
 
+# sentinel配置
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+
 #openfeign 配置
 feign:
   client:
