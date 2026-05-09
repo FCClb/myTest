@@ -50,7 +50,7 @@ public class OrderController {
 
     //Sentinel测试
     @GetMapping("/order/sentinel")
-    @SentinelResource(value = "sentinel", blockHandlerClass = OrderControllerBlock.class, blockHandler = "sentinelBlock")
+    @SentinelResource(value = "sentinel", fallback = "sentinelFallback", blockHandlerClass = OrderControllerBlock.class, blockHandler = "sentinelBlock")
     public String sentinel(@RequestParam String value) throws InterruptedException {
 
         switch (value) {
@@ -64,6 +64,7 @@ public class OrderController {
         return "sentinel - " + serverPort + " : success!";
     }
 
+
     //是sentinel方法的降级方法，可以在方法逻辑中返回托底数据
     // 写在这里不需要加 static
 //    public String sentinelBlock(String value, BlockException exception) {
@@ -76,5 +77,11 @@ public class OrderController {
 //
 //        return "failed msg : " + message;
 //    }
+
+    //Fallback降级
+    public String sentinelFallback(String value, Throwable ex) {
+
+        return "sentinelFallback";
+    }
 
 }
