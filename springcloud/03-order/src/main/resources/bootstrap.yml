@@ -23,6 +23,23 @@ spring:
       transport:
         dashboard: localhost:8080
 
+#      利用nacos实现持久化配置
+      datasource:
+        flow: # 流控
+          nacos:
+            server-addr: ${spring.cloud.nacos.config.server-addr}
+#            group-id:
+            data-id: ${spring.application.name}-flow.json
+            data-type: json
+            rule-type: flow
+        degrade:  # 降级
+          nacos:
+            server-addr: ${spring.cloud.nacos.config.server-addr}
+#            group-id:
+            data-id: ${spring.application.name}-degrade.json
+            data-type: json
+            rule-type: degrade
+
 #openfeign 配置
 feign:
   client:

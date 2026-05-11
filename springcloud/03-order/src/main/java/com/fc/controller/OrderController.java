@@ -35,6 +35,7 @@ public class OrderController {
     private String info;
 
     @GetMapping("/order/info")
+    @SentinelResource(value = "info")
     public String info() {
         return info;
     }
