@@ -48,3 +48,6 @@ feign:
         read-timeout: 5000 # 默认设置所有服务超时5秒会报错
       stock:
         read-timeout: 1000  # 单独对某个服务设置超时（优先生效）
+
+  circuitbreaker: #开启OpenFeign和Sentinel的整合
+    enabled: true
