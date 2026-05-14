@@ -19,6 +19,7 @@
         <module>01-stock</module>
         <module>02-stock</module>
         <module>03-order</module>
+        <module>04-gateway</module>
     </modules>
 
     <properties>
