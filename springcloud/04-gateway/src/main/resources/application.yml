@@ -9,8 +9,16 @@ spring:
     gateway:
       discovery:
         locator:
-#         开启默认的路由规则，会根据注册中心的服务名作为路径实现路由规则
-          enabled: true
+#         设置为true 开启默认的路由规则，会根据注册中心的服务名作为路径实现路由规则
+          enabled: false
 
+#         可以通过 yml 和Java配置类的方式来自定义配置路由规则
+      routes:
+        - id: path_route
+          uri: http://localhost:8090/
+          predicates:
+            - Path=/order/**
+#         如此设置会把 http://localhost/order/order/info 路由到 http://localhost:8090/order/order/info
+#         把 http://localhost/order/info 路由到 http://localhost:8090/order/info
 server:
   port: 80
