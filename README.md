@@ -6,7 +6,6 @@
  
 <!-- 配置本地仓库地址 -->
 <localRepository>D:\B_code\Maven\repository</localRepository>
-<!-- <localRepository>D:\Maven\repository</localRepository> -->
 
 
  
