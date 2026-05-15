@@ -23,5 +23,10 @@ spring:
 #         如此设置会把 http://localhost/order/order/info 路由到 http://localhost:8090/order/order/info
 #         把 http://localhost/order/info 路由到 http://localhost:8090/order/info
 
+#         断言测试
+#            - After=2026-05-19T12:00:00.000+08:00[Asia/Shanghai]  # 需要在这个时间点后才会路由
+#            - Header=X-Request-Id, \d+  # 需要携带请求头：key为X-Request-Id，值为\d+（任意个0~9数字）
+#            - Method=GET  # 请求方式需为GET
+
 server:
   port: 80
