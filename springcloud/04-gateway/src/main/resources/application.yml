@@ -28,5 +28,19 @@ spring:
 #            - Header=X-Request-Id, \d+  # 需要携带请求头：key为X-Request-Id，值为\d+（任意个0~9数字）
 #            - Method=GET  # 请求方式需为GET
 
+#         gateway的自带filter测试
+          filters:
+#            - AddRequestHeader=X-Request-red, blue
+#            - AddRequestParameter=red, blue
+#            - AddResponseHeader=X-Response-Red, Blue
+#            - StripPrefix=1 # 去掉第一个路径
+#           会把 /order/order/info 路由到 /order/info
+
+      default-filters: #  默认的全局过滤器
+        - AddRequestHeader=X-Request-red, blue
+        - AddRequestParameter=red, blue
+        - AddResponseHeader=X-Response-Red, Blue
+        - StripPrefix=1
+
 server:
   port: 80

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @RefreshScope   //动态刷新
 public class OrderController {
@@ -83,6 +85,12 @@ public class OrderController {
     public String sentinelFallback(String value, Throwable ex) {
 
         return "sentinelFallback";
+    }
+
+    //GateWay的Filter测试
+    @GetMapping("/order/gateway")
+    public String gateway(HttpServletRequest request) {
+        return null;
     }
 
 }
